@@ -82,7 +82,7 @@ export default function Login() {
             <span className='text-right text-sm cursor-pointer hover:text-green-700'>Esqueci a senha</span>
 
             {error && <div className="text-red-500 flex gap-1 items-center justify-center">
-              <WarningCircle size={20} weight="bold" />
+              <WarningCircle className='fill-red-500 w-6' />
               <p className="font-semibold text-md">{error}</p>
             </div>}
 

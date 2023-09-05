@@ -15,7 +15,7 @@ export const Button = ( {children, variant='primary', isLoading=false, className
 
   return (
     <button {...props} className={'flex items-center justify-center gap-2 leading-6 rounded-md px-4 py-2 font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-500 disabled:opacity-60 disabled:cursor-not-allowed' + variantStyle + className}>
-      {isLoading && <CircleNotch size={16} weight="bold" className="animate-spin"/>}
+      {isLoading && <CircleNotch className="animate-spin w-4 fill-white"/>}
       <span>{children}</span>
     </button>
   )

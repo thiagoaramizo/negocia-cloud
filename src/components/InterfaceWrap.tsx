@@ -21,8 +21,8 @@ export function InterfaceWrap ({children}: InterfaceWrapProps) {
         style={{gridTemplateColumns: `${sidebarWidth} 1fr` }}
       >
         <div className="bg-emerald-600">
-          <button className="px-3 py-3 m-1 rounded-xl text-emerald-800 transition-colors hover:text-emerald-100" onClick={() => setSidebarOpen(!sidebarOpen)}>
-            <ArrowLineRight size={32} className="transition-transform" weight="bold" style={{transform: rotateMenuButton}}/>
+          <button className="px-3 py-3 m-1 rounded-xl text-emerald-800 transition-color" onClick={() => setSidebarOpen(!sidebarOpen)}>
+            <ArrowLineRight className="transition-transform fill-emerald-800" style={{transform: rotateMenuButton}}/>
           </button>
         </div>
         

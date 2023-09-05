@@ -9,7 +9,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@phosphor-icons/react": "^2.0.10",
     "@types/jsonwebtoken": "^9.0.2",
     "@types/node": "20.5.9",
     "@types/react": "18.2.21",
