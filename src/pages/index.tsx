@@ -17,7 +17,7 @@ export default function Home() {
       <title>Negocia Cloud</title>
     </Head>
     <InterfaceWrap>
-
+      Esse é o conteúdo
     </InterfaceWrap>
   </>)
 }
