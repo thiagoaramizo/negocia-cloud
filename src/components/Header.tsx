@@ -1,7 +1,5 @@
-import { AppContext } from "@/context/AppContext";
-import { ArrowLineRight } from "@phosphor-icons/react";
 import Image from "next/image";
-import { useContext, useState } from "react";
+import { useState } from "react";
 
 interface HeaderProps {
 }
