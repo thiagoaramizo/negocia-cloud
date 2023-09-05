@@ -4,13 +4,14 @@ interface BasicInputProps extends InputHTMLAttributes<HTMLInputElement> {
   name: string
   title: string
   required?: boolean
+  requiredWarning?: boolean
 }
 
-export function Input ({name, title, required=false, disabled, ...props}: BasicInputProps) {
+export function Input ({name, title, required=false, requiredWarning=false, disabled, ...props}: BasicInputProps) {
 
   return (
     <div>
-      <label htmlFor={name} className="block text-sm font-medium leading-6 text-gray-900">{title} {required && <span className="text-xs text-red-500">(Obrigatório)</span>}</label>
+      <label htmlFor={name} className="block text-sm font-medium leading-6 text-gray-900">{title} { (required && requiredWarning) && <span className="text-xs text-red-500">(Obrigatório)</span>}</label>
       <div  className="mt-1">
         <input 
           {...props}
