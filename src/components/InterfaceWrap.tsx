@@ -1,7 +1,7 @@
 import { ReactNode, useContext } from "react";
 import { Header } from "./Header";
 import { AppContext } from "@/context/AppContext";
-import ArrowLineRight from "./icons/ArrowLineRight";
+import { SideBar } from "./SideBar";
 
 
 interface InterfaceWrapProps {
@@ -10,9 +10,8 @@ interface InterfaceWrapProps {
 
 export function InterfaceWrap ({children}: InterfaceWrapProps) {
 
-  const {sidebarOpen, setSidebarOpen} = useContext(AppContext)
-  const rotateMenuButton = sidebarOpen ? 'rotate(180deg)' : 'rotate(0deg)'
-  const sidebarWidth = sidebarOpen ? '300px' : '70px'
+  const {sidebarOpen} = useContext(AppContext)
+  const sidebarWidth = sidebarOpen ? 'max-content' : '70px'
 
   return (
     <>
@@ -20,17 +19,16 @@ export function InterfaceWrap ({children}: InterfaceWrapProps) {
         className="grid min-h-screen w-full" 
         style={{gridTemplateColumns: `${sidebarWidth} 1fr` }}
       >
-        <div className="bg-emerald-600">
-          <button className="px-3 py-3 m-1 rounded-xl text-emerald-800 transition-color" onClick={() => setSidebarOpen(!sidebarOpen)}>
-            <ArrowLineRight className="transition-transform fill-emerald-800" style={{transform: rotateMenuButton}}/>
-          </button>
-        </div>
+        <SideBar />
         
         <div className="bg-green-50">
+
           <Header />
-          <div className="px-8 py-8">
+          
+          <div className="p-8">
             {children}
           </div>
+
         </div>
       </div>
       </>

@@ -8,13 +8,13 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   return await middleAuth( context )
 } 
 
-export default function Home() {
+export default function Dashboard() {
   return (<>
     <Head>
-      <title>Negocia Cloud</title>
+      <title>Dashboard - Negocia Cloud</title>
     </Head>
     <InterfaceWrap>
-      Página Inicial
+      Dashboard
     </InterfaceWrap>
   </>)
 }
