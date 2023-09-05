@@ -9,7 +9,7 @@ export default function Login() {
   return (
     <div className='w-full bg-gradient-to-r from-emerald-400	to-cyan-500'>
 
-      <div className='h-screen flex items-center justify-center md:justify-end md:bg-login bg-contain bg-no-repeat py-36 px-8 container'>
+      <div className='h-screen flex items-center justify-center md:justify-end bg-none md:bg-login bg-contain bg-no-repeat py-24 md:py-36 px-8 container'>
 
         <div className='bg-white rounded-lg shadow-lg flex flex-col gap-2 px-8 py-12 w-96'>
           <Image src={'/images/negocia-cloud.svg'} alt='Negocia cloud' width={340} height={103}/>

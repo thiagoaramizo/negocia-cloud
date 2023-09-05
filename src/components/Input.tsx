@@ -18,7 +18,7 @@ export function Input ({name, title, required=false, disabled, ...props}: BasicI
           name={name}
           required={required}
           disabled={disabled}
-          className="block w-full rounded-md border-0 px-3 py-1.5 bg-white text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 disabled:cursor-not-allowed disabled:opacity-50" />
+          className="block w-full rounded-md border border-gray-300 px-3 py-1.5 bg-white text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-500 focus:border-green-500 sm:text-sm sm:leading-6 disabled:cursor-not-allowed disabled:opacity-50" />
       </div>
     </div>
   )
