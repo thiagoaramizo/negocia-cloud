@@ -1,15 +1,13 @@
 import Image from 'next/image'
-import { Inter } from 'next/font/google'
 import { Input } from '@/components/Input'
 import { Button } from '@/components/Button'
 import { FormEvent, useContext, useState } from 'react'
 import { useRouter } from 'next/router'
 import axios, { AxiosError } from "axios";
-import { WarningCircle } from '@phosphor-icons/react'
 import { AppContext } from '@/context/AppContext'
 import Head from 'next/head'
+import WarningCircle from '@/components/icons/WarningCircle'
 
-const inter = Inter({ subsets: ['latin'] })
 
 export default function Login() {
 

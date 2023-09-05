@@ -1,9 +1,8 @@
-"use client"
-
 import { ReactNode, useContext } from "react";
 import { Header } from "./Header";
 import { AppContext } from "@/context/AppContext";
-import { ArrowLineRight } from "@phosphor-icons/react";
+import ArrowLineRight from "./icons/ArrowLineRight";
+
 
 interface InterfaceWrapProps {
   children: ReactNode

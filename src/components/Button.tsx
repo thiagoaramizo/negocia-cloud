@@ -1,5 +1,5 @@
-import { CircleNotch } from "@phosphor-icons/react"
 import { ButtonHTMLAttributes, ReactNode } from "react"
+import CircleNotch from "./icons/CircleNotch"
 
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
