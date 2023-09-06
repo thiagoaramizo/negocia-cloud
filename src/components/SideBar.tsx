@@ -6,12 +6,11 @@ import House from "./icons/House"
 import { deleteCookie } from "cookies-next"
 import { useRouter } from "next/router"
 import SignOut from "./icons/SignOut"
-import Link from "next/link"
 import Chart from "./icons/Chart"
 import Users from "./icons/Users"
 import HandCoins from "./icons/HandCoins"
 import Image from "next/image";
-
+import { SideBarItem } from "./SideBarItem"
 
 export const SideBar = () => {
 
@@ -23,61 +22,58 @@ export const SideBar = () => {
   const handleSideBarOpenClick = () => {
     setSidebarOpen(!sidebarOpen)
   }
+
+  const handleSelectItem = async () => {
+    const timer = await new Promise((r) => {setTimeout(r, 300)})
+    setSidebarOpen(false)
+  }
   
   const handlerLogout = () => {
     deleteCookie('authorization')
+    handleSelectItem()
     router.push('/')
   }
 
   return (
-    <div className="bg-slate-700 flex flex-col items-center justify-between h-screen sticky">
+      <div aria-selected={sidebarOpen} className="bg-slate-700 flex flex-col items-center justify-between h-screen sticky aria-selected:animate-menu-animation z-50">
 
-          <div className="flex flex-col items-start justify-end w-full bg-emerald-500">
-            <button className="flex flex-col items-center justify-center h-24 w-full" onClick={handleSideBarOpenClick}>
-              {sidebarOpen ?
-              <div className="w-full flex items-center justify-between px-4" style={{minWidth: 250}}> 
-                <Close className="transition-all fill-emerald-900 hover:fill-emerald-100" />
-                <Image src={'/images/negocia-cloud-simple-white.svg'} alt='Negocia cloud' width={120} height={40}/>
-              </div> 
-              :
-              <List className="transition-all fill-emerald-900 hover:fill-emerald-100" />
-            }
-            </button>
-          </div>
-      
-          <div className="flex flex-col items-start justify-start w-full flex-1 mt-6">
-            
-            <Link href={'/'} aria-selected={pathname === '/'} className="group/item w-full flex gap-2 items-center px-4 py-5 text-emerald-100 aria-selected:bg-slate-800 aria-selected:bg-opacity-50 hover:bg-slate-800 hover:bg-opacity-30">
-              <House className=" fill-emerald-500 group-hover/item:fill-emerald-300"/>
-              {sidebarOpen && <span className="pr-6 text-md group-hover/item:text-white">Inicial</span>}
-            </Link>
-            
-            <Link href={'/dashboard'} aria-selected={pathname.includes('/dashboard')} className="group/item w-full flex gap-2 items-center px-4 py-5 text-emerald-100 aria-selected:bg-slate-800 aria-selected:bg-opacity-50 hover:bg-slate-800 hover:bg-opacity-30">
-              <Chart className=" fill-emerald-500 group-hover/item:fill-emerald-300"/>
-              {sidebarOpen && <span className="pr-6 text-md group-hover/item:text-white">Dashboard</span>}
-            </Link>
+        <div className="flex flex-col items-start justify-end w-full bg-emerald-500">
+          <button className="flex flex-col items-center justify-center h-24 w-full" onClick={handleSideBarOpenClick}>
+          {sidebarOpen ?
+            <div className="w-full flex items-center justify-between pl-4 pr-8" style={{minWidth: 350}}> 
+              <Close className="transition-all fill-emerald-900 hover:fill-emerald-100" />
+              <Image src={'/images/negocia-cloud-simple-white.svg'} alt='Negocia cloud' width={120} height={40}/>
+            </div> 
+          :
+            <List className="transition-all fill-emerald-900 hover:fill-emerald-100" />
+          }
+          </button>
+        </div>
+        
+        <div className="flex flex-col items-start justify-start w-full flex-1 mt-6">
+          <SideBarItem name={'Inicial'} href={'/'} selected={pathname === '/'} onClick={handleSelectItem}>
+            <House className=" fill-emerald-500 h-6"/>
+          </SideBarItem>
 
-            <Link href={'/clientes'} aria-selected={pathname.includes('/clientes')} className="group/item w-full flex gap-2 items-center px-4 py-5 text-emerald-100 aria-selected:bg-slate-800 aria-selected:bg-opacity-50 hover:bg-slate-800 hover:bg-opacity-30">
-              <Users className=" fill-emerald-500 group-hover/item:fill-emerald-300"/>
-              {sidebarOpen && <span className="pr-6 text-md group-hover/item:text-white">Clientes</span>}
-            </Link>
+          <SideBarItem name={'Dashboard'} href={'/dashboard'} selected={pathname.includes('/dashboard')} onClick={handleSelectItem}>
+            <Chart className=" fill-emerald-500 h-6"/>
+          </SideBarItem>
 
-            <Link href={'/cobrancas'} aria-selected={pathname.includes('/cobrancas')} className="group/item w-full flex gap-2 items-center px-4 py-5 text-emerald-100 aria-selected:bg-slate-800 aria-selected:bg-opacity-50 hover:bg-slate-800 hover:bg-opacity-30">
-              <HandCoins className=" fill-emerald-500 group-hover/item:fill-emerald-300"/>
-              {sidebarOpen && <span className="pr-6 text-md group-hover/item:text-white">Cobranças</span>}
-            </Link>
+          <SideBarItem name={'Clientes'} href={'/clientes'} selected={pathname.includes('/clientes')} onClick={handleSelectItem}>
+            <Users className=" fill-emerald-500 h-6"/>
+          </SideBarItem>
 
+          <SideBarItem name={'Cobranças'} href={'/cobrancas'} selected={pathname.includes('/cobrancas')} onClick={handleSelectItem}>
+            <HandCoins className=" fill-emerald-500 h-6"/>
+          </SideBarItem>
+        </div>
 
-          </div>
+        <div className="flex flex-col items-start justify-end w-full pt-6 ">
+          <SideBarItem name={'Sair'} href={'#'} selected={false} onClick={handlerLogout}>
+            <SignOut className=" fill-emerald-500 h-6"/>
+          </SideBarItem>
+        </div>
 
-          <div className="flex flex-col items-start justify-end w-full py-6 ">
-            <button className="group/item flex gap-2 items-center px-4 rounded-xl text-slate-500" onClick={handlerLogout}>
-              <SignOut className="transition-colors fill-slate-500 group-hover/item:fill-white"/>
-              {sidebarOpen && <span className="transition-colors pr-6 text-md group-hover/item:text-white">Sair</span>}
-            </button>
-          </div>
-
-          
-    </div>
-  )
+      </div>
+    )
 }
