@@ -10,6 +10,7 @@ import Link from "next/link"
 import Chart from "./icons/Chart"
 import Users from "./icons/Users"
 import HandCoins from "./icons/HandCoins"
+import Image from "next/image";
 
 
 export const SideBar = () => {
@@ -29,13 +30,14 @@ export const SideBar = () => {
   }
 
   return (
-    <div className="bg-slate-700 flex flex-col items-center justify-between">
+    <div className="bg-slate-700 flex flex-col items-center justify-between h-screen sticky">
 
-          <div className="flex flex-col items-start justify-end w-full bg-emerald-600">
+          <div className="flex flex-col items-start justify-end w-full bg-emerald-500">
             <button className="flex flex-col items-center justify-center h-24 w-full" onClick={handleSideBarOpenClick}>
               {sidebarOpen ?
               <div className="w-full flex items-center justify-between px-4" style={{minWidth: 250}}> 
-                <Close className="transition-all fill-emerald-900 hover:fill-emerald-100" /> 
+                <Close className="transition-all fill-emerald-900 hover:fill-emerald-100" />
+                <Image src={'/images/negocia-cloud-simple-white.svg'} alt='Negocia cloud' width={120} height={40}/>
               </div> 
               :
               <List className="transition-all fill-emerald-900 hover:fill-emerald-100" />
@@ -45,22 +47,22 @@ export const SideBar = () => {
       
           <div className="flex flex-col items-start justify-start w-full flex-1 mt-6">
             
-            <Link href={'/'} aria-selected={pathname === '/'} className="group/item w-full flex gap-2 items-center px-4 py-5 text-emerald-100 aria-selected:bg-slate-800 aria-selected:bg-opacity-30 hover:bg-slate-800 hover:bg-opacity-30">
+            <Link href={'/'} aria-selected={pathname === '/'} className="group/item w-full flex gap-2 items-center px-4 py-5 text-emerald-100 aria-selected:bg-slate-800 aria-selected:bg-opacity-50 hover:bg-slate-800 hover:bg-opacity-30">
               <House className=" fill-emerald-500 group-hover/item:fill-emerald-300"/>
               {sidebarOpen && <span className="pr-6 text-md group-hover/item:text-white">Inicial</span>}
             </Link>
             
-            <Link href={'/dashboard'} aria-selected={pathname.includes('/dashboard')} className="group/item w-full flex gap-2 items-center px-4 py-5 text-emerald-100 aria-selected:bg-slate-800 aria-selected:bg-opacity-30 hover:bg-slate-800 hover:bg-opacity-30">
+            <Link href={'/dashboard'} aria-selected={pathname.includes('/dashboard')} className="group/item w-full flex gap-2 items-center px-4 py-5 text-emerald-100 aria-selected:bg-slate-800 aria-selected:bg-opacity-50 hover:bg-slate-800 hover:bg-opacity-30">
               <Chart className=" fill-emerald-500 group-hover/item:fill-emerald-300"/>
               {sidebarOpen && <span className="pr-6 text-md group-hover/item:text-white">Dashboard</span>}
             </Link>
 
-            <Link href={'/clientes'} aria-selected={pathname.includes('/clientes')} className="group/item w-full flex gap-2 items-center px-4 py-5 text-emerald-100 aria-selected:bg-slate-800 aria-selected:bg-opacity-30 hover:bg-slate-800 hover:bg-opacity-30">
+            <Link href={'/clientes'} aria-selected={pathname.includes('/clientes')} className="group/item w-full flex gap-2 items-center px-4 py-5 text-emerald-100 aria-selected:bg-slate-800 aria-selected:bg-opacity-50 hover:bg-slate-800 hover:bg-opacity-30">
               <Users className=" fill-emerald-500 group-hover/item:fill-emerald-300"/>
               {sidebarOpen && <span className="pr-6 text-md group-hover/item:text-white">Clientes</span>}
             </Link>
 
-            <Link href={'/cobrancas'} aria-selected={pathname.includes('/cobrancas')} className="group/item w-full flex gap-2 items-center px-4 py-5 text-emerald-100 aria-selected:bg-slate-800 aria-selected:bg-opacity-30 hover:bg-slate-800 hover:bg-opacity-30">
+            <Link href={'/cobrancas'} aria-selected={pathname.includes('/cobrancas')} className="group/item w-full flex gap-2 items-center px-4 py-5 text-emerald-100 aria-selected:bg-slate-800 aria-selected:bg-opacity-50 hover:bg-slate-800 hover:bg-opacity-30">
               <HandCoins className=" fill-emerald-500 group-hover/item:fill-emerald-300"/>
               {sidebarOpen && <span className="pr-6 text-md group-hover/item:text-white">Cobranças</span>}
             </Link>

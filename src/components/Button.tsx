@@ -10,7 +10,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 export const Button = ( {children, variant='primary', isLoading=false, className, ...props}: ButtonProps ) => {
 
-  const variantStyle = (variant === 'primary') ? ' bg-green-600 not:disable:hover:bg-green-800 ' : ' bg-slate-500 not:disable:hover:bg-slate-600 '
+  const variantStyle = (variant === 'primary') ? ' bg-emerald-600 not:disable:hover:bg-emerald-800 ' : ' bg-slate-500 not:disable:hover:bg-slate-600 '
 
 
   return (

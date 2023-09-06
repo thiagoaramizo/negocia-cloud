@@ -14,7 +14,7 @@ export default function Clientes() {
       <title>Clientes - Negocia Cloud</title>
     </Head>
     <InterfaceWrap>
-      Clientes
+      <h1 className='font-light text-emerald-600 text-md mb-8'>Clientes</h1>
     </InterfaceWrap>
   </>)
 }

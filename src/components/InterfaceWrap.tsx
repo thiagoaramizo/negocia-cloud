@@ -16,16 +16,19 @@ export function InterfaceWrap ({children}: InterfaceWrapProps) {
   return (
     <>
       <div 
-        className="grid min-h-screen w-full" 
-        style={{gridTemplateColumns: `${sidebarWidth} 1fr` }}
+        className="grid h-screen w-full relative bg-green-50" 
       >
-        <SideBar />
+
+        <div className="fixed z-50">
+          <SideBar />
+        </div>
         
-        <div className="bg-green-50">
+        
+        <div className="bg-slate-50 pl-16">
 
           <Header />
           
-          <div className="p-8">
+          <div className="p-16 pt-12">
             {children}
           </div>
 
