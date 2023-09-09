@@ -14,6 +14,9 @@ const config: Config = {
       animation: {
         "menu-animation": "shadow 0.3s ease 0s 1 normal forwards",
       },
+      scale: {
+        '101': '1.015',
+      },
       keyframes: {
         shadow: {
           "0%": {

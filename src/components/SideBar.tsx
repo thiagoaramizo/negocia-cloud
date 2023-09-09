@@ -11,6 +11,7 @@ import Users from "./icons/Users"
 import HandCoins from "./icons/HandCoins"
 import Image from "next/image";
 import { SideBarItem } from "./SideBarItem"
+import Briefcase from "./icons/Briefcase"
 
 export const SideBar = () => {
 
@@ -35,9 +36,9 @@ export const SideBar = () => {
   }
 
   return (
-      <div aria-selected={sidebarOpen} className="bg-slate-700 flex flex-col items-center justify-between h-screen sticky aria-selected:animate-menu-animation z-50">
+      <div aria-selected={sidebarOpen} className="bg-slate-700 flex flex-col items-center justify-between h-screen sticky aria-selected:animate-menu-animation z-50 aria-selected:rounded-r-lg">
 
-        <div className="flex flex-col items-start justify-end w-full bg-emerald-500">
+        <div aria-selected={sidebarOpen}  className="flex flex-col items-start justify-end w-full bg-emerald-500 aria-selected:rounded-tr-lg">
           <button className="flex flex-col items-center justify-center h-24 w-full" onClick={handleSideBarOpenClick}>
           {sidebarOpen ?
             <div className="w-full flex items-center justify-between pl-4 pr-8" style={{minWidth: 350}}> 
@@ -65,6 +66,10 @@ export const SideBar = () => {
 
           <SideBarItem name={'Cobranças'} href={'/cobrancas'} selected={pathname.includes('/cobrancas')} onClick={handleSelectItem}>
             <HandCoins className=" fill-emerald-500 h-6"/>
+          </SideBarItem>
+
+          <SideBarItem name={'Configurações'} href={'/configuracoes'} selected={pathname.includes('/configuracoes')} onClick={handleSelectItem}>
+            <Briefcase className=" fill-emerald-500 h-6"/>
           </SideBarItem>
         </div>
 
