@@ -7,7 +7,7 @@ export interface ProposesStatus {
 
 export interface ProposeType {
   id: string
-  debt: DebtType[]
+  debt: DebtType
   date: Date
   status: ProposesStatus
 }

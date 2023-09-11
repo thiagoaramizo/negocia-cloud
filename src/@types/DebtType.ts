@@ -7,6 +7,7 @@ export interface DebtType {
   documentId: string
   expirationDate: string | Date
   originalValue: number
+  correction?: ChargerType
   fee: ChargerType
   interest: ChargerType
   otherCharges: ChargerType[]
@@ -14,13 +15,13 @@ export interface DebtType {
   collateral: CollateralGuaranteeType[]
 }
 
-interface CollateralGuaranteeType {
+export interface CollateralGuaranteeType {
   name: string
   desc: string
   value: string
 }
 
-interface ChargerType {
+export interface ChargerType {
   name: string
   chargerType: 'fixed' | 'percentage'
   value: number

@@ -11,6 +11,10 @@ const config: Config = {
       backgroundImage: {
         login: 'url("/images/image-login.png")',
       },
+      gridTemplateColumns: {
+        "address-number": "1fr 100px",
+        "address-uf": "1fr 1fr 100px",
+      },
       animation: {
         "menu-animation": "shadow 0.3s ease 0s 1 normal forwards",
       },

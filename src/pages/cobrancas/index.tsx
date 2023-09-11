@@ -87,9 +87,9 @@ export default function Cobrancas() {
         <div className="px-6 mb-1 flex gap-4 items-center justify-between text-sm font-semibold text-emerald-700">
 
           <div className="flex-1 grid grid-cols-6 gap-4" >
-            <span>Nome</span>
-            <span>Documento</span>
-            <span>Origem</span>
+            <span>Cliente(s)</span>
+            <span>CPF/CNPJ</span>
+            <span>Identificador</span>
             <span>Dívida total</span>
             <span>Criação</span>
             <span>Status</span>
@@ -102,10 +102,10 @@ export default function Cobrancas() {
               <div key={propose.id} className="group/item bg-white border border-slate-50 px-6 py-6 rounded-lg shadow-sm flex gap-4 items-center justify-between transition-all hover:scale-101 hover:shadow-md hover:border-emerald-400">
 
                 <div className="flex-1 grid grid-cols-6 gap-4" >
-                  <span className="truncate">{propose.debt[0].debtor[0].name} {propose.debt[0].debtor.length > 1 && "e outro(s)" }</span>
-                  <span>{propose.debt[0].debtor[0].fiscalDocument} {propose.debt[0].debtor.length > 1 && "e outra(s)" }</span>
-                  <span>{propose.debt[0].origin} {propose.debt[0].debtor.length > 1 && "e outra(s)" }</span>
-                  <span>{propose.debt[0].presentValue.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}</span>
+                  <span className="truncate">{propose.debt.debtor[0].name} {propose.debt.debtor.length > 1 && "e outro(s)" }</span>
+                  <span>{propose.debt.debtor[0].fiscalDocument} {propose.debt.debtor.length > 1 && "e outra(s)" }</span>
+                  <span>{propose.debt.origin} {propose.debt.debtor.length > 1 && "e outra(s)" }</span>
+                  <span>{propose.debt.presentValue.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}</span>
                   <span title={new Date(propose.date).toLocaleDateString()}>
                     {formatDistanceToNow(new Date(propose.date), {
                       addSuffix: true,

@@ -87,7 +87,7 @@ export default function Clientes() {
           </div>
           <div className="flex-1 grid grid-cols-5 gap-4" >
             <span>Nome</span>
-            <span>Documento</span>
+            <span>CPF/CNPJ</span>
             <span>E-mail</span>
             <span>Dívida total</span>
             <span>Última proposta</span>

@@ -16,7 +16,6 @@ export function InputRadio ({name, value, title, required=false, requiredWarning
         <label
           className="relative flex cursor-pointer items-center rounded-full"
           htmlFor={name+value}
-          data-ripple-dark="true"
         >
           <input
             {...props}
