@@ -107,7 +107,7 @@ export default function Clientes() {
                   <span>{client.name}</span>
                   <span>{client.fiscalDocument}</span>
                   <span className="truncate">{client.email}</span>
-                  <span>{client.totalDebt ? client.totalDebt.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'}) : '-'}</span>
+                  <span>{client.totalDebts ? client.totalDebts.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'}) : '-'}</span>
                   <ProposeStatusBadge status={client.lastStats} />
                 </div>
                 <div className="w-12">
