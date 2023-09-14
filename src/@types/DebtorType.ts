@@ -8,8 +8,8 @@ export interface DebtorType {
   phone?: string
   address: AddressDebtorType
   id: string
-  debtorData?: CompanyDebtorDataType
-  totalDebt?: number
+  companyDebtorData?: CompanyDebtorDataType
+  totalDebts?: number
   lastStats?: ProposesStatus
 }
 

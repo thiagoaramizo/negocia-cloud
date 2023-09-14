@@ -18,7 +18,7 @@ export const clientList: DebtorType[] = [
     email: 'fulano@email.com',
     typeOfDebtor: 'individual',
     address: genericAddress,
-    totalDebt: 365.87,
+    totalDebts: 365.87,
     lastStats: {
       updatedAt: new Date('2023-09-09'),
       situation: 'accepted'
@@ -31,12 +31,12 @@ export const clientList: DebtorType[] = [
     email: 'eltrano@spacez.com',
     typeOfDebtor: 'company',
     address: genericAddress,
-    totalDebt: 12560.2,
+    totalDebts: 12560.2,
     lastStats: {
       updatedAt: new Date('2023-08-09'),
       situation: 'sent'
     },
-    debtorData: {
+    companyDebtorData: {
       contactName: 'Eltrano Muskano',
     }
   },
@@ -55,7 +55,7 @@ export const clientList: DebtorType[] = [
     email: 'hugo_kevin_viana@rgsa.com.br',
     typeOfDebtor: 'individual',
     address: genericAddress,
-    totalDebt: 520.25,
+    totalDebts: 520.25,
     lastStats: {
       updatedAt: new Date('2023-08-06'),
       situation: 'viewed'
@@ -68,7 +68,7 @@ export const clientList: DebtorType[] = [
     email: 'pietra-melo91@profiledesign.com.br',
     typeOfDebtor: 'individual',
     address: genericAddress,
-    totalDebt: 1060.4,
+    totalDebts: 1060.4,
     lastStats: {
       updatedAt: new Date('2023-08-09'),
       situation: 'expired'
@@ -81,7 +81,7 @@ export const clientList: DebtorType[] = [
     email: 'fuclano1964@email.com',
     typeOfDebtor: 'company',
     address: genericAddress,
-    debtorData: {
+    companyDebtorData: {
       contactName: 'Fuclano Silva Sauro',
     }
   },
@@ -92,7 +92,7 @@ export const clientList: DebtorType[] = [
     email: 'silvana_patricia_monteiro@caiuas.com.br',
     typeOfDebtor: 'individual',
     address: genericAddress,
-    totalDebt: 60.4,
+    totalDebts: 60.4,
     lastStats: {
       updatedAt: new Date('2023-08-09'),
       situation: 'completed'
@@ -105,7 +105,7 @@ export const clientList: DebtorType[] = [
     email: 'sandraalanalima@yande.com.br',
     typeOfDebtor: 'individual',
     address: genericAddress,
-    totalDebt: 180,
+    totalDebts: 180,
     lastStats: {
       updatedAt: new Date('2023-08-09'),
       situation: 'completed'

@@ -1,6 +1,7 @@
 import { ProposeType } from '@/@types/ProposeType'
 import { DecodeTokenUserType } from '@/@types/UserType'
 import { getCookie, setCookie } from 'cookies-next'
+import { addDays, subDays } from 'date-fns'
 import jwt from 'jsonwebtoken'
 import { createContext, ReactNode, useEffect, useState } from 'react'
 
@@ -27,32 +28,64 @@ export function AppContexttProvider({ children }: contextProviderProps) {
     {  
       id: '',
       debt: {
-          id: '',
-          debtor: [],
-          origin: '',
-          documentId: '',
-          expirationDate: new Date,
-          originalValue: 0,
-          fee: {
-            name: 'fee',
-            chargerType: 'fixed',
-            value: 0,
-          },
-          interest: {
-            name: 'interest',
-            chargerType: 'fixed',
-            value: 0,
-          },
-          otherCharges: [],
-          presentValue: 0,
-          collateral: [],
+        id: '',
+        debtor: [],
+        origin: '',
+        documentId: '',
+        expirationDate: subDays( new Date(), 30),
+        originalValue: 0,
+        fee: {
+          name: 'fee',
+          chargerType: 'fixed',
+          value: 0,
+        },
+        interest: {
+          name: 'interest',
+          chargerType: 'fixed',
+          value: 0,
+        },
+        otherCharges: [],
+        presentValue: 0,
+        collateral: [],
+        correction: {
+          name: 'INPC',
+          value: 1,
+          correctionStatus: 'no-correct'
+        }
       },
       date: new Date,
       status: {
         updatedAt: new Date,
         situation: 'sent'
       },
-    }
+      proposeValue: 0,
+      expirationDate: addDays( new Date(), 30),
+      paymentDeadline: 10,
+      payments: [
+        { 
+          name: 'creditCard',
+          status: true,
+        },
+        { 
+          name: 'bankShip',
+          status: true,
+        },
+        { 
+          name: 'pix',
+          status: true,
+        }
+      ],
+      comunication: [
+        { 
+          name: 'email',
+          status: true,
+        },
+        { 
+          name: 'whatsapp',
+          status: true,
+        },
+      ]
+      }
   )
 
   const updateToken = async (token: string) => {
