@@ -8,15 +8,15 @@ import { useEffect, useState } from "react"
 export default function ProposedPage() {
 
   const router = useRouter()
+  const {id} = router.query
   const [loading, setLoading] = useState(false)
   const [propose, setPropose] = useState<ProposeType>()
 
 
   const getProposed = async () => {
     setLoading(true)
-    const proposedId = router.query.id
     try{
-      const response = await axios.get(`/api/public-proposes/${proposedId}`)
+      const response = await axios.get(`/api/public-propose/${id}`)
       console.log(response.data)
       setPropose(response.data)
     } catch (error) {
@@ -26,14 +26,17 @@ export default function ProposedPage() {
   }
 
   useEffect(()=>{
+    if(!id) {
+      return;
+    }
     getProposed()
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [id])
 
   return (
     <>
       <h1>Acesso dinâmico à proposta</h1>
-      {propose && <span>{JSON.stringify(propose.id)}</span>}
+      {propose && <span>{propose.id}</span>}
     </>
   )
 }

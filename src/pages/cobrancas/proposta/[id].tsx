@@ -19,6 +19,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 export default function ProposedAdminPage() {
 
   const router = useRouter()
+  const {id} = router.query
   const [loading, setLoading] = useState(true)
   const [propose, setPropose] = useState<ProposeType>()
 
@@ -26,9 +27,9 @@ export default function ProposedAdminPage() {
   const getProposed = async () => {
     setLoading(true)
     const token = getCookie('authorization')
-    const proposedId = router.query.id
+    
     try{
-      const response = await axios.get(`/api/proposes/${proposedId}`, {
+      const response = await axios.get(`/api/proposes/${id}`, {
       headers: {
         'Authorization': token
         }
@@ -48,9 +49,12 @@ export default function ProposedAdminPage() {
   }
 
   useEffect(()=>{
+    if(!id) {
+      return;
+    }
     getProposed()
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [id])
 
   return (
     <>
