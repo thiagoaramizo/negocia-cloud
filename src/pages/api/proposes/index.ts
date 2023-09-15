@@ -1,4 +1,4 @@
-import { listDebtors } from '@/services/proposes'
+import { listProposes, savePropose } from '@/services/proposes'
 import { auth } from '@/services/users'
 import type { NextApiRequest, NextApiResponse } from 'next'
 
@@ -12,10 +12,23 @@ export default async function handler(
     try {
       const token = req.headers.authorization
       auth(token as string)
-      const response = listDebtors()
+      const response = listProposes()
       const timer = await new Promise((r) => {setTimeout(r, 500)})
 
       res.status(200).json(response)
+
+    } catch (err) {
+      if( err instanceof Error ){
+        res.status(400).json(err.message)
+      }
+    }
+  } else if (req.method === 'POST') {
+    try {
+      const token = req.headers.authorization
+      auth(token as string)
+      const propose = savePropose(req.body)
+      const timer = await new Promise((r) => {setTimeout(r, 500)})
+      res.status(201).json('')
 
     } catch (err) {
       if( err instanceof Error ){

@@ -1,3 +1,6 @@
+"use client"
+
+import { ProposeType } from "@/@types/ProposeType"
 import axios from "axios"
 import { useRouter } from "next/router"
 import { useEffect, useState } from "react"
@@ -6,24 +9,20 @@ export default function ProposedPage() {
 
   const router = useRouter()
   const [loading, setLoading] = useState(false)
-  const [proposed, setProposed] = useState()
+  const [propose, setPropose] = useState<ProposeType>()
 
 
   const getProposed = async () => {
     setLoading(true)
     const proposedId = router.query.id
     try{
-      const response = await axios.get(`/api/proposta/${proposedId}`, {
-      headers: {
-        'Authorization': ''
-        }
-      })
-      setProposed(response.data)
+      const response = await axios.get(`/api/public-proposes/${proposedId}`)
+      console.log(response.data)
+      setPropose(response.data)
     } catch (error) {
       console.error(error)
     }
     setLoading(false)
-    
   }
 
   useEffect(()=>{
@@ -33,7 +32,8 @@ export default function ProposedPage() {
 
   return (
     <>
-      <h1>Acesso dinâmico à proposta {JSON.stringify(proposed)}</h1>
+      <h1>Acesso dinâmico à proposta</h1>
+      {propose && <span>{JSON.stringify(propose.id)}</span>}
     </>
   )
 }

@@ -1,4 +1,4 @@
-import { proposesList } from '@/services/mock/proposes'
+import { getPropose, listProposes, savePropose } from '@/services/proposes'
 import { auth } from '@/services/users'
 import type { NextApiRequest, NextApiResponse } from 'next'
 
@@ -12,7 +12,9 @@ export default async function handler(
     try {
       const token = req.headers.authorization
       auth(token as string)
-      const response = proposesList
+      const query = req.query;
+      const { id } = query;
+      const response = getPropose( id as string )
       const timer = await new Promise((r) => {setTimeout(r, 500)})
 
       res.status(200).json(response)
@@ -22,7 +24,7 @@ export default async function handler(
         res.status(400).json(err.message)
       }
     }
-  } else {
+  }  else {
     res.status(400).json('Método de requisição inválido')
   }
 }

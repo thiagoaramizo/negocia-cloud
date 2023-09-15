@@ -1,12 +1,15 @@
 import { Input } from "@/components/Input";
 import { Button } from "@/components/Button";
-import { useContext } from "react";
+import { FormEvent, useContext, useState } from "react";
 import { AppContext } from "@/context/AppContext";
 import User from "@/components/icons/User";
 import Store from "@/components/icons/Store";
 import File from "@/components/icons/File";
 import { formatISO } from "date-fns";
 import { InputToggle } from "@/components/InputToggle";
+import axios, { AxiosError } from "axios";
+import router from "next/router";
+import { getCookie } from "cookies-next";
 
 interface ProposeFormProps {
   setPage: (value: any) => void
@@ -15,6 +18,8 @@ interface ProposeFormProps {
 export const ProposeForm = ({ setPage }: ProposeFormProps) => {
 
   const {propose, setPropose} = useContext(AppContext)
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState('')
 
   const formatDate = ( date: Date | string ) => {
     const dateTypeDate = typeof date === 'string' ? new Date(date) : date
@@ -34,9 +39,9 @@ export const ProposeForm = ({ setPage }: ProposeFormProps) => {
     const chargesValue = presentValue - originalValue
     const discountOnCharges = chargesValue - discountValue < 0 ? chargesValue : discountValue
     const discountOnPrincipal = chargesValue - discountValue < 0 ? (chargesValue - discountValue)*-1 : 0
-    const discountOnChargesPercentage = discountOnCharges/chargesValue
-    const discountOnPrincipalPercentage = discountOnPrincipal/originalValue
-    const discountOnTotalPercentage = discountValue/presentValue
+    const discountOnChargesPercentage = discountOnCharges/chargesValue || 0
+    const discountOnPrincipalPercentage = discountOnPrincipal/originalValue || 0
+    const discountOnTotalPercentage = discountValue/presentValue || 0
     return [
       discountOnChargesPercentage.toLocaleString('pt-BR', {style: 'percent', maximumFractionDigits: 2}), 
       discountOnPrincipalPercentage.toLocaleString('pt-BR', {style: 'percent', maximumFractionDigits: 2}),
@@ -79,6 +84,32 @@ export const ProposeForm = ({ setPage }: ProposeFormProps) => {
     })
   }
 
+  const handleSubmit = async (e: FormEvent) => {
+    console.log('Enviando prosposta')
+    e.preventDefault();
+    try {
+      setLoading(true);
+      const token = getCookie('authorization')
+      const response = await axios.post("/api/proposes", propose, {
+        headers: {
+          'Authorization': token
+        }
+      });
+      console.log(response.data);
+      if (response.status !== 201) setError(response.data);
+      router.push("/cobrancas");
+    } catch (err) {
+      setLoading(false);
+      if (err instanceof AxiosError) {
+        if (err.response) {
+          setError(err.response.data);
+        } else {
+          setError("Erro ao fazer o cadastro");
+        }
+      } else if (err instanceof Error) setError("Erro ao fazer o cadastro");
+    }
+  };
+
   return (
     <div>
     <div className="bg-white rounded-lg p-8 mb-8 shadow-md">
@@ -119,7 +150,7 @@ export const ProposeForm = ({ setPage }: ProposeFormProps) => {
       </div>
     </div>
 
-    <form  className="bg-white rounded-lg p-8 shadow-md" onSubmit={()=>{}}>
+    <form  className="bg-white rounded-lg p-8 shadow-md" onSubmit={handleSubmit}>
       <h2 className="text-green-700 font-semibold pb-8 text-xl">Definindo a proposta</h2>
 
       <div className="border p-4 py-6 rounded-lg relative flex flex-col items-center">
@@ -135,7 +166,8 @@ export const ProposeForm = ({ setPage }: ProposeFormProps) => {
                 max={propose.debt.presentValue} 
                 step="0.01"
                 className="block pl-12 w-full rounded-md border text-right border-gray-300 px-3 py-2 bg-white shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-500 focus:border-green-500 sm:text-sm sm:leading-6 disabled:cursor-not-allowed disabled:opacity-50"
-                style={{fontSize:'2rem'}}  
+                style={{fontSize:'2rem'}}
+                required  
               />
               <span className="block absolute top-3.5 left-3">R$</span>
             </div>
@@ -172,7 +204,7 @@ export const ProposeForm = ({ setPage }: ProposeFormProps) => {
 
       <div className="flex items-center justify-between pt-8">
         <Button variant="secondary" onClick={() => setPage(2)}>Voltar</Button>
-        <Button variant="primary">Salvar</Button>
+        <Button variant="primary" type="submit" isLoading={loading} disabled={loading}>Salvar</Button>
       </div>
     </form>
     

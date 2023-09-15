@@ -1,0 +1,57 @@
+{
+  "id": "0c44071b-5760-4378-bfb9-d9ea234b7c8e",
+  "debt": {
+    "id": "",
+    "debtor": [
+      {
+        "id": "b621adab-c937-400a-a758-1bc1d9141a2a",
+        "fiscalDocument": "68.144.470/0001-62",
+        "name": "SpaceZ do Brasil Ltda",
+        "email": "eltrano@spacez.com",
+        "typeOfDebtor": "company",
+        "address": {
+          "postalCode": "00000-000",
+          "city": "Uberlândia",
+          "uf": "MG",
+          "street": "Avenida Afonso Pena",
+          "number": "1000",
+          "complement": "101"
+        },
+        "totalDebts": 12560.2,
+        "lastStats": {
+          "updatedAt": "2023-08-09T00:00:00.000Z",
+          "situation": "sent"
+        },
+        "companyDebtorData": { "contactName": "Eltrano Muskano" }
+      }
+    ],
+    "origin": "Contrato 011154",
+    "documentId": "",
+    "expirationDate": "2023-07-16T18:55:48.145Z",
+    "originalValue": 297.56,
+    "fee": { "name": "fee", "chargerType": "percentage", "value": 10 },
+    "interest": { "name": "interest", "chargerType": "percentage", "value": 1 },
+    "otherCharges": [],
+    "presentValue": 334.24700556799996,
+    "collateral": [],
+    "correction": {
+      "name": "INPC",
+      "value": 1.00294,
+      "correctionStatus": "correct"
+    }
+  },
+  "date": "2023-09-14T18:55:48.145Z",
+  "status": { "updatedAt": "2023-09-14T18:55:48.145Z", "situation": "sent" },
+  "proposeValue": 290,
+  "expirationDate": "2023-10-14T18:55:48.145Z",
+  "paymentDeadline": 10,
+  "payments": [
+    { "name": "creditCard", "status": true },
+    { "name": "bankShip", "status": true },
+    { "name": "pix", "status": true }
+  ],
+  "comunication": [
+    { "name": "email", "status": true },
+    { "name": "whatsapp", "status": true }
+  ]
+}

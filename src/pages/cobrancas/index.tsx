@@ -99,7 +99,7 @@ export default function Cobrancas() {
         <div className="flex flex-col gap-3">
           {proposeList.map( propose => {
             return (
-              <div key={propose.id} className="group/item bg-white border border-slate-50 px-6 py-6 rounded-lg shadow-sm flex gap-4 items-center justify-between transition-all hover:scale-101 hover:shadow-md hover:border-emerald-400">
+              <Link href={`/cobrancas/proposta/${propose.id}`} key={propose.id} className="group/item bg-white border border-slate-50 px-6 py-6 rounded-lg shadow-sm flex gap-4 items-center justify-between transition-all hover:scale-101 hover:shadow-md hover:border-emerald-400">
 
                 <div className="flex-1 grid grid-cols-6 gap-4" >
                   <span className="truncate">{propose.debt.debtor[0].name} {propose.debt.debtor.length > 1 && "e outro(s)" }</span>
@@ -114,11 +114,10 @@ export default function Cobrancas() {
                   </span>
                   <ProposeStatusBadge status={propose.status} />
                 </div>
-              </div>
+              </Link>
             )
           })}
         </div>
-
 
       </InterfaceWrap>
     </>

@@ -1,5 +1,4 @@
-import { listDebtors } from '@/services/proposes'
-import { auth } from '@/services/users'
+import { getPropose } from '@/services/proposes'
 import type { NextApiRequest, NextApiResponse } from 'next'
 
 type Data = any
@@ -10,11 +9,10 @@ export default async function handler(
 ) {
   if (req.method === 'GET') {
     try {
-      const token = req.headers.authorization
-      auth(token as string)
-      const response = listDebtors()
+      const query = req.query;
+      const { id } = query;
+      const response = getPropose( id as string )
       const timer = await new Promise((r) => {setTimeout(r, 500)})
-
       res.status(200).json(response)
 
     } catch (err) {
@@ -22,7 +20,7 @@ export default async function handler(
         res.status(400).json(err.message)
       }
     }
-  } else {
+  }  else {
     res.status(400).json('Método de requisição inválido')
   }
 }

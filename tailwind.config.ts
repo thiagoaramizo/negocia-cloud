@@ -14,6 +14,7 @@ const config: Config = {
       gridTemplateColumns: {
         "address-number": "1fr 100px",
         "address-uf": "1fr 1fr 100px",
+        "section-menu": "250px 1fr",
       },
       animation: {
         "menu-animation": "shadow 0.3s ease 0s 1 normal forwards",

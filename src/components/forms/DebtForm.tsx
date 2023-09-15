@@ -78,7 +78,7 @@ export const DebtForm = ({ setPage }: DebtFormProps) => {
         <Input name={"origin"} title={"Origem da dívida"} value={origin} onChange={(e) => handleChangeOrigin(e.target.value)} required/>
         <Input name={"documentId"} title={"Enviar arquivo (em breve)"} type="file" disabled />
         <Input name={"expirationDate"} title={"Data de vencimento"} type="date" value={getStringFromDate(expirationDate as Date)} max={ new Date().toISOString().split('T')[0]} onChange={(e) => handleChangeExpirationDate( getDateFromInput(e.target.value) )}  required />
-        <Input name={"originalValue"} title={"Valor original"} type="number" min="0" value={originalValue} onChange={(e) => handleChangeOriginalValue(Number(e.target.value))} required />
+        <Input name={"originalValue"} title={"Valor original"} type="number" min="0" step='0.01' value={originalValue} onChange={(e) => handleChangeOriginalValue(Number(e.target.value))} required />
       </div>    
             
       <ChargesFragmentForm />

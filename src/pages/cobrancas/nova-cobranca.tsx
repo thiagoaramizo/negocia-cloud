@@ -6,6 +6,7 @@ import { useState } from "react";
 import { DebtorForm } from "@/components/forms/DebtorForm";
 import { DebtForm } from "@/components/forms/DebtForm";
 import { ProposeForm } from "@/components/forms/ProposeForm";
+import { NewProposeStepper } from "@/components/forms/NewProposeStepper";
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   return await middleAuth(context);
@@ -23,17 +24,25 @@ export default function NovaCobranca() {
       <InterfaceWrap>
         <h1 className="font-light text-emerald-600 text-md mb-8">Cobranças | Nova Cobrança | Etapa {page} de 3</h1>
 
-        {page === 1 && <>
-          <DebtorForm setPage={setPage} />
-        </>}
+        <NewProposeStepper step={page} />
 
-        {page === 2 && 
-          <DebtForm setPage={setPage} />
-        }
+        <div className="flex flex-col items-center">
+          <div className="w-full max-w-5xl">
 
-      {page === 3 && 
-        <ProposeForm setPage={setPage} />
-      }
+            {page === 1 && 
+              <DebtorForm setPage={setPage} />
+            }
+
+            {page === 2 && 
+              <DebtForm setPage={setPage} />
+            }
+
+          {page === 3 && 
+            <ProposeForm setPage={setPage} />
+          }
+
+        </div>
+      </div>
 
       </InterfaceWrap>
     </>
