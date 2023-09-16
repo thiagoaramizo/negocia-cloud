@@ -26,7 +26,7 @@ export default function ProposedPage() {
   const ui = appConfig.appInterface
   const [loading, setLoading] = useState(false)
   const [propose, setPropose] = useState<ProposeType>()
-  const [page, setPage] = useState(5)
+  const [page, setPage] = useState(0)
 
   const debtorFirstName = propose ? propose.debt.debtor[0].name.split(' ')[0] : ''
 
