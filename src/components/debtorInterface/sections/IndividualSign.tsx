@@ -59,7 +59,7 @@ export function IndividualSign ({propose, setPage}: IndividualSignProps) {
         </div>
 
         <div className="flex items-center justify-between gap-4 pt-2 xl:pt-12">
-          <button className="opacity-0 animate-fade-in-12" onClick={() => goToPage(3)}>
+          <button className="opacity-0 animate-fade-in-12" onClick={() => goToPage(7)}>
             <div className="flex gap-2 items-center">
               <ArrowBack className="w-4"/>
               <span className="text-md">Voltar</span>
