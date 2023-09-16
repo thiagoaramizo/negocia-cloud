@@ -2,7 +2,7 @@ import { SVGProps } from "react";
 
 interface IconProps extends SVGProps<SVGSVGElement> {}
 
-export default function ArrowBack({ ...props }: IconProps) {
+export default function Check({ ...props }: IconProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -12,7 +12,7 @@ export default function ArrowBack({ ...props }: IconProps) {
       viewBox="0 0 256 256"
       {...props}
     >
-      <path d="M168.49,199.51a12,12,0,0,1-17,17l-80-80a12,12,0,0,1,0-17l80-80a12,12,0,0,1,17,17L97,128Z"></path>
+      <path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"></path>
     </svg>
   );
 }

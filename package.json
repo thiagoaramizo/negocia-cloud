@@ -26,11 +26,13 @@
     "react-chartjs-2": "^5.2.0",
     "react-colorful": "^5.6.1",
     "react-dom": "18.2.0",
+    "react-html5-camera-photo": "^1.5.11",
     "tailwindcss": "3.3.3",
     "typescript": "5.2.2",
     "wcag-contrast": "^3.0.0"
   },
   "devDependencies": {
+    "@types/react-html5-camera-photo": "^1.5.1",
     "@types/wcag-contrast": "^3.0.0"
   }
 }

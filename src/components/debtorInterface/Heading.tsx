@@ -7,7 +7,7 @@ interface HeadingProps {
 
 export function Heading ( {color, children}: HeadingProps) {
   return (
-    <h1 className="text-3xl font-bold" style={{color: color}}>
+    <h1 className="text-4xl font-extrabold" style={{color: color}}>
       {children}
     </h1>
   )

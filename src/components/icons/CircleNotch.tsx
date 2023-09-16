@@ -8,7 +8,7 @@ export default function CircleNotch({ ...props }: IconProps) {
       xmlns="http://www.w3.org/2000/svg"
       width="32"
       height="32"
-      fill="#212121"
+      fill="currentColor"
       viewBox="0 0 256 256"
       {...props}
     >

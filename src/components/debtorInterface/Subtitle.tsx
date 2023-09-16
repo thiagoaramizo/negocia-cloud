@@ -7,7 +7,7 @@ interface SubtitleProps {
 
 export function Subtitle ( {color, children}: SubtitleProps) {
   return (
-    <h2 className="text-2xl font-bold" style={{color: color}}>
+    <h2 className="text-3xl font-extrabold" style={{color: color}}>
       {children}
     </h2>
   )
