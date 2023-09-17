@@ -2,6 +2,7 @@
 
 import { ProposeType } from "@/@types/ProposeType"
 import { ColorResponsiveBackground } from "@/components/debtorInterface/ColorResponsiveBackground"
+import { IndividualConfirm } from "@/components/debtorInterface/sections/IndividualConfirm"
 import { IndividualContract } from "@/components/debtorInterface/sections/IndividualContract"
 import { IndividualDebt } from "@/components/debtorInterface/sections/IndividualDebt"
 import { IndividualIntroction } from "@/components/debtorInterface/sections/IndividualIntroction"
@@ -69,31 +70,44 @@ export default function ProposedPage() {
             </div>
           }
 
-          {propose && 
+          {(propose && propose.debt.debtor[0].typeOfDebtor === 'individual') && 
             <div className="h-full flex flex-col gap-4 p-8 items-center justify-between relative pb-24">
 
               <div className="max-w-xl flex">
                 <Image src={`/company-logos/${ui.logo}`} className="w-42 h-auto opacity-0 animate-fade-in" width={192} height={192} alt={"logo"} />
               </div>
-              
-              {page === 0 && <IndividualIntroction propose={propose} setPage={setPage}/>}
 
-              {page === 1 && <IndividualToken propose={propose} setPage={setPage}/>}
+                {page === 0 && <IndividualIntroction propose={propose} setPage={setPage}/>}
 
-              {page === 2 && <IndividualDebt propose={propose} setPage={setPage}/>}
+                {page === 1 && <IndividualToken propose={propose} setPage={setPage}/>}
 
-              {page === 3 && <IndividualPropose propose={propose} setPage={setPage}/>}
+                {page === 2 && <IndividualDebt propose={propose} setPage={setPage}/>}
 
-              {page === 4 && <IndividualPayment propose={propose} setPage={setPage}/>}
+                {page === 3 && <IndividualPropose propose={propose} setPage={setPage}/>}
 
-              {page === 5 && <IndividualContract propose={propose} setPage={setPage}/>}
+                {page === 4 && <IndividualPayment propose={propose} setPage={setPage}/>}
 
-              {page === 6 && <IndividualSign propose={propose} setPage={setPage}/>}
+                {page === 5 && <IndividualContract propose={propose} setPage={setPage}/>}
+
+                {page === 6 && <IndividualSign propose={propose} setPage={setPage}/>}
+
+                {page === 7 && <IndividualConfirm propose={propose} setPage={setPage}/>}
+
 
               <div className="flex gap-4 text-center items-center justify-center font-light text-sm opacity-50 absolute bottom-4">
                 <button>Termos de uso</button>
                 <button>Política de privacidade</button>
               </div>
+            </div>
+          }
+
+          {(propose && propose.debt.debtor[0].typeOfDebtor === 'company') && 
+            <div className="h-full flex flex-col gap-4 p-8 items-center justify-between relative pb-24">
+              <div className="max-w-xl flex">
+                <Image src={`/company-logos/${ui.logo}`} className="w-42 h-auto opacity-0 animate-fade-in" width={192} height={192} alt={"logo"} />
+              </div>
+
+              <span className="pb-64 text-3xl opacity-50"> Em breve... </span>
             </div>
           }
 

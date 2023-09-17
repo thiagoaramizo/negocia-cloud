@@ -3,6 +3,8 @@ import { AppContext } from "@/context/AppContext";
 import { ProposeType } from "@/@types/ProposeType";
 import ArrowBack from "@/components/icons/ArrowBack";
 import Camera from "react-html5-camera-photo";
+import { Button } from "../Button";
+import Check from "@/components/icons/Check";
 
 
 interface IndividualSignProps {
@@ -65,6 +67,14 @@ export function IndividualSign ({propose, setPage}: IndividualSignProps) {
               <span className="text-md">Voltar</span>
             </div>
           </button>
+
+          <Button color={ui.colors.secondary} className="opacity-0 animate-fade-in-24" onClick={() => goToPage(7)}>
+            <div className="flex gap-2 items-center">
+              <Check className="w-6"/>
+              <span className="text-lg leading-tight">Assinar</span>
+             
+            </div>
+          </Button>
         </div>
 
     </div>

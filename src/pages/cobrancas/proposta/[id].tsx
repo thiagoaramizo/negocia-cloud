@@ -11,6 +11,7 @@ import Head from "next/head"
 import { useRouter } from "next/router"
 import { useEffect, useState } from "react"
 import Link from "next/link"
+import Image from "next/image"
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   return await middleAuth(context);
@@ -41,6 +42,21 @@ export default function ProposedAdminPage() {
     }
     setLoading(false)
     
+  }
+
+  const getSinc = async () => {
+    const token = getCookie('authorization')
+    try{
+      const response = await axios.get(`/api/sinc/${propose?.debt.debtor[0].fiscalDocument}`, {
+      headers: {
+        'Authorization': token
+        }
+      })
+      console.log(response.data)
+      setPropose(response.data)
+    } catch (error) {
+      console.error(error)
+    }    
   }
 
   const formatDate = ( date: Date | string ) => {
@@ -103,6 +119,11 @@ export default function ProposedAdminPage() {
                   </div>
                 </div>
               </div>
+            </div>
+
+            <div className="bg-white rounded-lg p-8 mb-8 shadow-md">
+              <h2 className="text-emerald-700 font-semibold pb-4 text-xl">Estatísticas do devedor</h2>
+              <Image src={'/images/score.png'} alt='score' width={1920} height={182} />
             </div>
           </div>
         }

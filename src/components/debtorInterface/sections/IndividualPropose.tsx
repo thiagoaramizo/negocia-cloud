@@ -60,23 +60,26 @@ export function IndividualPropose ({propose, setPage}: IndividualProposeProps) {
       <div className="flex flex-col gap-6 text-left">
         <Heading color={ui.colors.secondary}><span className="opacity-0 animate-fade-in">Nossa proposta</span></Heading>
 
-        <div className="grid grid-cols-2 gap-4 animate-fade-in" style={{color: ui.colors.secondary}}>
-          <ColorResponsiveBackground background={ui.colors.secondary} className="rounded-lg">
+        <div className="grid grid-cols-2 gap-4 h-fit max-h-32 animate-fade-in" style={{color: ui.colors.secondary}}>
+          <ColorResponsiveBackground background={ui.colors.secondary} className="rounded-lg max-h-fit">
             <div className="flex flex-col items-center justify-center p-4 text-center rounded-lg">
               <span className="text-4xl md:text-6xl font-extrabold">{percentualFormtat(PercentualChargesDiscount)}</span>
               <span className="font-extrabold text-lg leading-6 uppercase">de desconto nos encargos</span>
               {PercentualPrincipalDiscount > 0 && <span className="text-sm font-semibold pt-2 leading-tight"> + {percentualFormtat(PercentualPrincipalDiscount)} de desconto no valor original da dívida</span>}
             </div>
           </ColorResponsiveBackground>
-          <div className="flex flex-col items-center justify-center p-4 text-center border-2 rounded-lg" style={{borderColor: ui.colors.secondary}}>
-            <span className="font-bold text-lg uppercase">De  <strong>{moneyFormat(propose.debt.presentValue)}</strong> por </span>
-            <span className="font-extrabold text-2xl md:text-3xl leading-8 uppercase"> {moneyFormat(propose.proposeValue)}</span>
-          </div>
+
+            <div className="flex flex-col items-center justify-center p-4 text-center border-2 rounded-lg" style={{borderColor: ui.colors.secondary}}>
+              <span className="font-bold text-lg uppercase">De  <strong>{moneyFormat(propose.debt.presentValue)}</strong> por </span>
+              <span className="font-extrabold text-2xl md:text-3xl leading-8 uppercase"> {moneyFormat(propose.proposeValue)}</span>
+            </div>
         </div>
         
-
-        <p className="text-3xl font-bold leading-tight opacity-0 animate-fade-in-2"><strong style={{color: ui.colors.secondary}}>Removas as restrições no seu nome</strong> e pague em até {propose.paymentDeadline} dias.</p>
-        <p className="text-xl leading-normal opacity-0 animate-fade-in-6">Ao renovar a dívida você aproveita o <strong> desconto total de {percentualFormtat(PercentualTotalDiscount)} sobre o valor atual da dívida</strong> e ainda tem {propose.paymentDeadline} dias para pagar.</p>
+        <div className="block mt-12">
+          <p className="text-3xl font-bold leading-tight opacity-0 animate-fade-in-2"><strong style={{color: ui.colors.secondary}}>Removas as restrições no seu nome</strong> e pague em até {propose.paymentDeadline} dias.</p>
+          <p className="text-xl leading-normal opacity-0 animate-fade-in-6">Ao renovar a dívida você aproveita o <strong> desconto total de {percentualFormtat(PercentualTotalDiscount)} sobre o valor atual da dívida</strong> e ainda tem {propose.paymentDeadline} dias para pagar.</p>
+        </div>
+        
 
         <div className="flex items-center justify-between gap-4 pt-2 xl:pt-12">
           <button className="opacity-0 animate-fade-in-24" onClick={() => goToPage(2)}>
