@@ -1,8 +1,16 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## O que é o projeto
 
-## Getting Started
+Projeto realizado para o HackaJur da Algar para cobrança de dívidas de clientes.
+O projeto ficou em 3º lugar na competição.
+O projeto teve como requisitos a geração automática de termo de confissão de dívida (executável judicialmente) e a possibilidade de apresentação de garantias. O presente repositório lida diretamente com a UI da solução.
 
-First, run the development server:
+<img width="900" alt="Interface operador" src="https://github.com/thiagoaramizo/negocia-cloud/assets/48260314/d571d7e8-8cd9-4e50-ae90-33b462f79c20">
+
+
+## Para acessar o projeto
+
+Para executar o projeto é necessário ter o `node` instalado em sua versão mínima `v16.17.0` com o gerenciador de pacotes `npm@9.7.1`.
+Após clonar o projeto em sua máquina utilize o comando abaixo:
 
 ```bash
 npm run dev
@@ -12,27 +20,32 @@ yarn dev
 pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abra o endereço [http://localhost:3000](http://localhost:3000) no seu navegador para acessar o conteúdo.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+Se preferir, acesse a versão on-line do projeto em [negocia-cloud.vercel.app](negocia-cloud.vercel.app). Neste caso não é necessário instalar nada em seu computador.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+Os usuário de teste é `teste@email.com` e a senha é `12345`.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Navegando pelo projeto
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### Interface do gestor de cobranças
 
-## Learn More
+A interface do devedor oferece as principais operações para o gerenciamento dos devedores, sendo sua principal função o gerenciamento de propostas de acordo.
 
-To learn more about Next.js, take a look at the following resources:
+![uso-operador](https://github.com/thiagoaramizo/negocia-cloud/assets/48260314/9cca50a4-bdc2-44a3-a275-baa80dab1c1c)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### Interface do devedor
 
-## Deploy on Vercel
+Já a inteface do devedor foi desenvolvida tendo como foco o uso de dispositivos móveis. Esta interface é personalizada a partir do painel de configurações da interface do credor (operador).
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+![uso-devedor](https://github.com/thiagoaramizo/negocia-cloud/assets/48260314/65608954-ba90-4ccf-b1a0-424d9338a41e)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+
+## Tecnologias utilizada no front-end
+
+Para a realização deste projeto as principais bibliotecas utilizadas foram:
+- [Next.js](https://nextjs.org)
+- [Tailwindcss](https://tailwindcss.com)
+
