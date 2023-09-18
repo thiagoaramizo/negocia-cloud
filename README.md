@@ -10,14 +10,11 @@ O projeto teve como requisitos a geração automática de termo de confissão de
 ## Para acessar o projeto
 
 Para executar o projeto é necessário ter o `node` instalado em sua versão mínima `v16.17.0` com o gerenciador de pacotes `npm@9.7.1`.
-Após clonar o projeto em sua máquina utilize o comando abaixo:
+Após clonar o projeto em sua máquina utilize os comandos abaixo:
 
 ```bash
+npm i
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
 ```
 
 Abra o endereço [http://localhost:3000](http://localhost:3000) no seu navegador para acessar o conteúdo.
