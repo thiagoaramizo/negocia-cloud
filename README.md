@@ -49,3 +49,7 @@ Para a realização deste projeto as principais bibliotecas utilizadas foram:
 - [Next.js](https://nextjs.org)
 - [Tailwindcss](https://tailwindcss.com)
 
+## Demais camadas do projeto
+
+- Back-End [https://github.com/osodracnai/hackajur](https://github.com/osodracnai/hackajur)
+- Ciência de dados [https://github.com/douglasso1988/sinc](https://github.com/douglasso1988/sinc)
